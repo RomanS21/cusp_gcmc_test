@@ -4,7 +4,7 @@
 - [Planned extensions](#planned-extensions) - MACE model distilation (active learning)
 
 ## Purpose:
-This mini project aims to explore GCMC techniques in modelling adsorption in MOFs. I plan to demonstrate that my current PhD work translates well into this field as well as address any gaps in my CV with regards to my ability to simulate adsorption in MOFs and discuss the results of my simulations. This mini project also serves as a way to explore the Cusp AI platform specifically the kUPS and widom packages.
+This mini project aims to explore GCMC techniques in modelling adsorption in MOFs. I plan to demonstrate my engagement with the challenges posed in this internship and demonstrate how my PhD work on MLIP and active learning methodology can translate into into gas adsorption in MOFs. This also serves as a way to explore the Cusp AI platform specifically the kUPS and widom packages.
 
 ## Results so far:
   GCMC - UFF/TraPPE - CO2/N2 adsorption in RUBTAK
