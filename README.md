@@ -19,7 +19,7 @@ GCMC:
   This is plotted as a sanity check that no unreasonable structures are being generated. The key result here is that the mean energy of CO2 doped structures is lower than that of N2. This makes sense and is in line with the expectation that CO2 is more strongly adsorbed than N2 in this structure, with the caveat that this is total energy and also represents the greater loading seen for CO2. The mean energy of the structure is also lower than that of the empty structure, which is also expected as the adsorbed molecules are stabilising the structure.
   
   Mean Loading per unit cell:
-  In these runs a 3x3x3 supercell was used, and as such we scale the loading to per unit cell values for comparison. For both adsorbates, we see an increase in loading with pressure as expected. We further see that CO2 has a higher loading which is again in line with the expectation that CO2 is more strongly adsorbed. This is not a demostration of specific design choices of potential parameterisation, but comfort with using the kUPS package to run GCMC simulations.
+  In these runs a 3x3x3 supercell was used, and as such we scale the loading to per unit cell values for comparison. For both adsorbates, we see an increase in loading with pressure as expected. We further see that CO2 has a higher loading which is again in line with the expectation that CO2 is more strongly adsorbed. This is not a demonstration of specific design choices of potential parameterisation, but comfort with using the kUPS package to run GCMC simulations.
   
   Mean Isosteric Heat of Adsorption:
   
@@ -33,13 +33,13 @@ Widom:
 | Temperature /K  |K_H Experiment / mol/kg/Pa | K_H UFF/TraPPE / mol/kg/Pa | K_H MACE / mol/kg/Pa |
 |------|-------------------:|-------------------:|-------------:|
 | 298  |2.95e-5             |8.78e-5             |
-| 303  |2.26e-5             |7.42e-5             |
+| 303  |2.26e-5             |7.42e-5             |2.70e4
 
 ### Henry coefficients(K_H) of N₂ in RUBTAK
 
 | Temperature /K  |K_H Experiment / mol/kg/Pa | K_H UFF/TraPPE / mol/kg/Pa | K_H MACE / mol/kg/Pa |
 |------|-------------------:|-------------------:|-------------:|
-| 298  |1.98e-6             |4.21e-6             |
+| 298  |1.98e-6             |4.21e-6             |2.81e-8
 | 303  |2.46e-6             |3.81e-6             |2.74e-8|
 
 Reported MAE of UFF/TraPPE vs experiment: CO2 - 0.0299 eV, N2 - 0.0190 eV
@@ -48,23 +48,23 @@ In this experiment, the UFF/TraPPE results were obtained using the kUPS widom me
 
 Results for the UFF/TraPPE potentials, converted from mol/kg/Pa to eV, are exactly in line with what is reported in the benchmark paper CO2 and N2 Henry coefficients are recovered to values within the MAE reported. 
 
-UFF/TraPPE Widom insertion results are consistent with GCMC results, the henry coefficient is higher for CO2 than N2 by an order of magnitude, suggesting much stronger interactions. This correlates with the higher loading and more favourable isosteric heat of adsorption seen in the GCMC simulations. The relatively consistent isosteric heat of adsorption across loading suggests relatively equal binding energy across sites, with no population of dramtically more favourable sites. This is consistent with the chemistry of the MOF, with no open metal sites, suggesting that the K_H reflects an average across many equal sites rather than being biased by a small collection of very favourable sites.
+UFF/TraPPE Widom insertion results are consistent with GCMC results, the henry coefficient is higher for CO2 than N2 by an order of magnitude, suggesting much stronger interactions. This correlates with the higher loading and more favourable isosteric heat of adsorption seen in the GCMC simulations. The relatively consistent isosteric heat of adsorption across loading suggests relatively equal binding energy across sites, with no population of dramtically more favourable sites. This is consistent with the chemistry of the MOF, with no open metal sites, pointing to K_H reflecting a broad average across comparable sites.
 
 
 ## Planned extensions:
   - GCMC - MACE - reweighting to see alignment with UFF/TraPPE generated structures
-  - Foundation MACE model distilation - training of a lighter weighted model to be used in GCMC simulations
+  - Foundation MACE model distillation - training of a smaller model to be used in GCMC simulations
   - Benchmarking of the distilled model against MACE results, and if successful, against UFF/TraPPE GCMC results
 
-The Key planned extension is to attempt to distill a foundation MACE model into a smaller model usable for GCMC calculations that retains foundation level accuracy. Due to the time intensiveness of this task and my hope to send off the application soon, I will fully explain the planned approach here, but can not guarantee I will have results by the time this is seen.
+The Key planned extension is to distill a foundation MACE model into a smaller model usable for GCMC calculations that retains foundation level accuracy. Due to the time cost of this task, and my hope to send off the application soon, I will fully explain the planned approach here, but can not guarantee I will have results by the time this is seen.
 
 The plan:
-  - Take UFF/TraPPE generated structures (as a good start), evaluate a subset with a foudatioal MACE model and train a small mace model (distilation).
-  - The size of the model will be reduced by reducing r-max, num channels and expesivity like correlation (last option). The goal would be to reduce the model to a size that can run GCMC (likely through LAMMPS).
-  - The reduced parameter count and complexity will reduce accuracy, the correction to this would be to enter the large data regime, possible with the efficient evaluation of foudation models  (compared to DFT).
-  - The UFF/TraPPE potential will bias sampled data to its equilibrated loading etc, to correct this a committee (size 3-5) of small models will be trained and used to propogate GCMC/widom insertion.
-  - Structures will be selected by uncertaity (discussed later), labled with the foundation model and used to train the next generation of models much like in my preprint (Active Learning)
-  - INTERESTING NOTE - foundation models are kown to poorly predict MOF/adsorbate interactions, due to lack of data coverage, charges etc. Architechtures like MACE-POLAR or MACE-LES can be used but are more expensive but there are two iteresting paths.
+  - Take UFF/TraPPE generated structures (as a good start), evaluate a subset with a foundation MACE model and train a small mace model (distillation).
+  - The size of the model will be reduced by controlling r-max, num channels and complexity through parameters such as correlation (last option). The goal is to reduce the model to a size suitable to run GCMC (likely through LAMMPS).
+  - The reduced parameter count and complexity will reduce accuracy, the correction to this would be to enter the large data regime, accessible due to the efficiency of foudation models (compared to DFT).
+  - The UFF/TraPPE potential will bias sampled data to its equilibrated loading, to correct this a committee (size 3-5) of small models will be trained and used to propogate GCMC/widom insertion.
+  - Structures will be selected by uncertainty (discussed later), labled with the foundation model and used to train the next generation of models much like in my preprint (Active Learning)
+  - INTERESTING NOTE - foundation models are kown to poorly predict MOF/adsorbate interactions, due to lack of data coverage, charges etc. Architectures like MACE-POLAR or MACE-LES can be used but are more expensive but there are two iteresting paths.
     - Finetune the foudnation model before you begin distilation, something that is likely already planned via the ODAC2025 dataset for a better starting point.
     - Lean into the locality of MACE models, reduce the r_max and a second corrective potential for charges (potentially an empirical one). Not only would this lead to a smaller faster model, but the locality means that in larger GCMC calculations the neighbour graphs can be updated less frequently and can be done so only around the inserted molecule with potential savings in energy  evaluation. The lower memory usage could also allow for running on cheaper smaller GPUs or the running of multiple structures on a single GPU to maximise efficiency.
 
