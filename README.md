@@ -1,13 +1,12 @@
-Contents:
-  Purpose
-  Results so far
-  Methods 
-  Planned extensions - MACE model distilation (active learning)
+## Contents:
+- [Purpose](#purpose)
+- [Results so far](#results-so-far)
+- [Planned extensions](#planned-extensions) - MACE model distilation (active learning)
 
-Purpose:
+## Purpose:
 This mini project aims to explore GCMC techniques in modelling adsorption in MOFs. I plan to demonstrate that my current PhD work translates well into this field as well as address any gaps in my CV with regards to my ability to simulate adsorption in MOFs and discuss the results of my simulations. This mini project also serves as a way to explore the Cusp AI platform specifically the kUPS and widom packages.
 
-Results so far:
+## Results so far:
   GCMC - UFF/TraPPE - CO2/N2 adsorption in RUBTAK
   Widom - UFF/TraPPE and MACE - CO2/N2 adsorption in RUBTAK
 
@@ -52,7 +51,7 @@ Results for the UFF/TraPPE potentials, converted from mol/kg/Pa to eV, are exact
 UFF/TraPPE Widom insertion results are consistent with GCMC results, the henry coefficient is higher for CO2 than N2 by an order of magnitude, suggesting much stronger interactions. This correlates with the higher loading and more favourable isosteric heat of adsorption seen in the GCMC simulations. The relatively consistent isosteric heat of adsorption across loading suggests relatively equal binding energy across sites, with no population of dramtically more favourable sites. This is consistent with the chemistry of the MOF, with no open metal sites, suggesting that the K_H reflects an average across many equal sites rather than being biased by a small collection of very favourable sites.
 
 
-Planned extensions:
+## Planned extensions:
   - GCMC - MACE - reweighting to see alignment with UFF/TraPPE generated structures
   - Foundation MACE model distilation - training of a lighter weighted model to be used in GCMC simulations
   - Benchmarking of the distilled model against MACE results, and if successful, against UFF/TraPPE GCMC results
