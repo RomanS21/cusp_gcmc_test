@@ -30,17 +30,17 @@ GCMC:
 Widom:
 ### Henry coefficients(K_H) of CO₂ in RUBTAK / mol/kg/Pa
 
-| Temperature /K  |Experiment|UFF/TraPPE|MACE-OMAT|MACE-MP 0b2|MACE-POLAR-m|
-|------|-------------------:|-------------------:|-------------:|-------------:|
-| 298  |2.95e-5             |8.78e-5             |4.59e4        | 1.11e-7 | 3.16e-5|
-| 303  |2.26e-5             |7.42e-5             |2.70e4        | 1.05e-7 | 2.64e-5|
+|Temperature /K|Experiment|UFF/TraPPE|MACE-OMAT|MACE-MP 0b2|MACE-POLAR-m|
+|--------------|---------:|---------:|--------:|----------:|-----------:|
+| 298          |2.95e-5   |8.78e-5   |4.59e4   | 1.11e-7   | 3.16e-5    |
+| 303          |2.26e-5   |7.42e-5   |2.70e4   | 1.05e-7   | 2.64e-5    |
 
 ### Henry coefficients(K_H) of N₂ in RUBTAK / mol/kg/Pa
 
-| Temperature /K  |Experiment|UFF/TraPPE|MACE|MACE-MP 0b2|MACE-POLAR-m|
-|------|-------------------:|-------------------:|-------------:|-------------:|
-| 298  |1.98e-6             |4.21e-6             |2.81e-8       | 1.93e-8 | 4.15e-6 |
-| 303  |2.46e-6             |3.81e-6             |2.74e-8       | 1.90e-8 | - |
+|Temperature /K|Experiment|UFF/TraPPE|MACE-OMAT|MACE-MP 0b2|MACE-POLAR-m|
+|--------------|---------:|---------:|--------:|----------:|-----------:|
+| 298          |1.98e-6   |4.21e-6   |2.81e-8  | 1.93e-8   | 4.15e-6    |
+| 303          |2.46e-6   |3.81e-6   |2.74e-8  | 1.90e-8   | - |
 
 Reported MAE of UFF/TraPPE vs experiment: CO2 - 0.0299 eV, N2 - 0.0190 eV
 
