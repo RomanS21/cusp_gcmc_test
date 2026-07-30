@@ -28,19 +28,19 @@ GCMC:
   One thing of note is that in both plots I present error bars. Hard error bars represent 1 SEM width and the shaded regions represent 2 SEM widths. This is to depict that for CO2 specifically, while some non-monotonic behaviour is seen in the isosteric heat of adsorption, it is within the error bars and as such not statistically significant. This also suggests that while there are favourable adsorption sites for CO2, they are either few in number or not dramatically more favourable than other sites. This could be a useful property for CO2 capture as this suggests the material will not saturate quickly, and conversely it will not be overly difficult to later remove the CO2.
 
 Widom:
-### Henry coefficients(K_H) of CO₂ in RUBTAK
+### Henry coefficients(K_H) of CO₂ in RUBTAK / mol/kg/Pa
 
-| Temperature /K  |K_H Experiment / mol/kg/Pa | K_H UFF/TraPPE / mol/kg/Pa | K_H MACE-OMAT / mol/kg/Pa | K_H MACE-MP 0b2 / mol/kg/Pa |K_H MACE-POLAR-m / mol/kg/Pa |
+| Temperature /K  |Experiment|UFF/TraPPE|MACE-OMAT|MACE-MP 0b2|MACE-POLAR-m|
 |------|-------------------:|-------------------:|-------------:|-------------:|
-| 298  |2.95e-5             |8.78e-5             |4.59e4        | 1.11e-7 | 3.16e-5
-| 303  |2.26e-5             |7.42e-5             |2.70e4        | 1.05e-7 | 2.64e-5
+| 298  |2.95e-5             |8.78e-5             |4.59e4        | 1.11e-7 | 3.16e-5|
+| 303  |2.26e-5             |7.42e-5             |2.70e4        | 1.05e-7 | 2.64e-5|
 
-### Henry coefficients(K_H) of N₂ in RUBTAK
+### Henry coefficients(K_H) of N₂ in RUBTAK / mol/kg/Pa
 
-| Temperature /K  |K_H Experiment / mol/kg/Pa | K_H UFF/TraPPE / mol/kg/Pa | K_H MACE / mol/kg/Pa |K_H MACE-MP 0b2 / mol/kg/Pa |K_H MACE-POLAR-m / mol/kg/Pa |
+| Temperature /K  |Experiment|UFF/TraPPE|MACE|MACE-MP 0b2|MACE-POLAR-m|
 |------|-------------------:|-------------------:|-------------:|-------------:|
-| 298  |1.98e-6             |4.21e-6             |2.81e-8       | 1.93e-8 | 4.15e-6 
-| 303  |2.46e-6             |3.81e-6             |2.74e-8       | 1.90e-8 | wating
+| 298  |1.98e-6             |4.21e-6             |2.81e-8       | 1.93e-8 | 4.15e-6 |
+| 303  |2.46e-6             |3.81e-6             |2.74e-8       | 1.90e-8 | - |
 
 Reported MAE of UFF/TraPPE vs experiment: CO2 - 0.0299 eV, N2 - 0.0190 eV
 
