@@ -39,8 +39,8 @@ Widom:
 
 |Temperature /K|Experiment|UFF/TraPPE|MACE-OMAT|MACE-MP 0b2|MACE-POLAR-m|
 |--------------|---------:|---------:|--------:|----------:|-----------:|
-| 298          |1.98e-6   |4.21e-6   |2.81e-8  | 1.93e-8   | 4.15e-6    |
-| 303          |2.46e-6   |3.81e-6   |2.74e-8  | 1.90e-8   | - |
+| 298          |1.98e-6   |4.21e-6   |2.81e-8  | 1.93e-8   | 4.64e-6    |
+| 303          |2.46e-6   |3.81e-6   |2.74e-8  | 1.90e-8   | 4.15e-6 |
 
 Reported MAE of UFF/TraPPE vs experiment: CO2 - 0.0299 eV, N2 - 0.0190 eV
 
@@ -52,7 +52,9 @@ UFF/TraPPE Widom insertion results are consistent with GCMC results, the henry c
 
 When looking at MACE type models, which are not directly trained on MOF data, we can see performace deteriorates by a fair bit. For most cases the MACE models underpredict K_H by two orders of magnitude. This suggests that the MACE models predict weaker interactions. In Part this will be due to a lack of charged interactions. MACE models can implicitly learn local electrostatic interactions, povided they can be expressed in the descriptor. However there is no formal charge infromation, for UFF/TraPPE this is achieved using Ewald summation, and since MOF interactions are often dominated by physisorption, missing these favourable interactions is likely the cause of the underpredicion.
 
-In this same vein, running Widon insertion with MACE-POLAR not only corrects the major issues seen in other MACE models, but for CO2, the K_H is even more accurate than that of the UFF/TraPPE potential with ewald charges. With MACE-POLAR there are two main changes. The first is the molecular data seen in the training set (something that active learning can address in other models), but more importantly the description of charges. I would argue that this makes the biggest difference when modelling MOFs, and is not something that can be address with active learning/distilling unless your model has some charge description. 
+In this same vein, running Widon insertion with MACE-POLAR not only corrects the major issues seen in other MACE models, but for CO2, the K_H is even more accurate than that of the UFF/TraPPE potential with ewald charges. With MACE-POLAR there are two main changes. The first is the molecular data seen in the training set (something that active learning can address in other models), but more importantly the description of charges. I would argue that this makes the biggest difference when modelling MOFs, and is not something that can be address with active learning/distilling unless your model has some charge description.
+
+We also see that for MACE-POLAR, the results are more accurate for CO2 isertion than N2. I would attribute this to training data, with out deep examination of the training set, I would supect that CO2 and similar groups would apprear far more frequently in the training set than N2.   
 ## Planned extensions:
   - GCMC - MACE - reweighting to see alignment with UFF/TraPPE generated structures
   - Foundation MACE model distillation - training of a smaller model to be used in GCMC simulations
